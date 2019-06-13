@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { CollectiveType } from '../constants/collectives';
-import withFallbackImage from '../lib/withFallbackImage';
 import Avatar from './Avatar';
 import LinkCollective from './LinkCollective';
 
@@ -32,8 +31,7 @@ const AvatarWithHost = ({ collective, host, radius, animationDuration, onCollect
     <MainContainer>
       <LinkCollective collective={collective} onClick={onCollectiveClick} isNewVersion>
         <Avatar
-          type={collective.type}
-          src={collective.image}
+          collective={collective}
           backgroundColor="#EBEBEB"
           border="1px solid #efefef"
           radius={radius}
@@ -44,8 +42,7 @@ const AvatarWithHost = ({ collective, host, radius, animationDuration, onCollect
       {host && (
         <HostLink collective={host} isNewVersion>
           <Avatar
-            type={host.type}
-            src={host.image}
+            collective={host}
             border="1px solid #efefef"
             radius={hostAvatarRadius}
             borderRadius={hostAvatarRadius / 4}
@@ -81,4 +78,4 @@ AvatarWithHost.propTypes = {
   onCollectiveClick: PropTypes.func,
 };
 
-export default withFallbackImage(AvatarWithHost);
+export default AvatarWithHost;

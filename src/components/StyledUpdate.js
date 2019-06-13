@@ -273,13 +273,7 @@ class StyledUpdate extends Component {
         <UpdateWrapper>
           <AvatarContainer>
             <a href={`/${update.fromCollective.slug}`} title={update.fromCollective.name}>
-              <Avatar
-                src={update.fromCollective.image}
-                type={update.fromCollective.type}
-                name={update.fromCollective.name}
-                key={update.fromCollective.id}
-                radius={40}
-              />
+              <Avatar collective={update.fromCollective} radius={40} />
             </a>
           </AvatarContainer>
           {mode !== 'edit' && (
